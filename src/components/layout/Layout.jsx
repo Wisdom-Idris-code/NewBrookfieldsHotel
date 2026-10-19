@@ -77,11 +77,11 @@ function Header() {
 
         <div className="hidden md:block">
           {hotel.bookingUrl ? (
-            <a href={hotel.bookingUrl} target="_blank" rel="noreferrer" className="btn-primary px-5 py-3 text-[10px]">
+            <a href={hotel.bookingUrl} target="_blank" rel="noreferrer" className="btn-primary text-[10px]">
               Reserve Your Stay
             </a>
           ) : (
-            <Link to="/contact#reservation" className="btn-primary px-5 py-3 text-[10px]">
+            <Link to="/contact#reservation" className="btn-primary text-[10px]">
               Plan Your Stay
             </Link>
           )}
@@ -193,7 +193,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-[#d7d2c7] md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} New Brookfields Hotel. Independent demonstration website concept by Wisdom Designs.</p>
+          <p>© {new Date().getFullYear()} New Brookfields Hotel.</p>
           <p>Website concept by Wisdom Designs.</p>
         </div>
       </div>

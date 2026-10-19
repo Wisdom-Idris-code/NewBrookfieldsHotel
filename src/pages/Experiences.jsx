@@ -1,12 +1,13 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { experiences } from '../data/experiences';
+import ResponsiveImage from '../components/ui/ResponsiveImage';
 
 export default function Experiences() {
   return (
     <>
       <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
-        <img src="/Images/Experiences/Experience5.jpg" alt="A welcoming hotel experience in Freetown" className="absolute inset-0 h-full w-full object-cover" />
+        <ResponsiveImage src="/Images/Experiences/Experience5.jpg" width={2448} height={3060} sizes="100vw" alt="A welcoming hotel experience in Freetown" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/55 to-black/20" />
         <div className="section-shell relative z-10 flex h-full items-end pb-14">
           <div className="max-w-2xl text-white">
@@ -21,7 +22,7 @@ export default function Experiences() {
           {experiences.map((experience, index) => (
             <article key={experience.id} className={`grid gap-6 md:gap-10 lg:grid-cols-2 lg:items-center ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
               <div className="overflow-hidden shadow-soft">
-                <img src={experience.image} alt={`${experience.title} at New Brookfields Hotel`} loading="lazy" className="h-[420px] w-full object-cover" />
+                <ResponsiveImage src={experience.image} width={experience.width} height={experience.height} sizes="(min-width: 1024px) 50vw, 100vw" alt={`${experience.title} at New Brookfields Hotel`} loading={index === 0 ? 'eager' : 'lazy'} className="h-[420px] w-full object-cover" />
               </div>
               <div className="space-y-6">
                 <p className="eyebrow">{experience.title}</p>

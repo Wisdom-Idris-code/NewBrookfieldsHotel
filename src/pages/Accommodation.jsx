@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { hotel } from '../data/hotel';
 import { rooms } from '../data/rooms';
+import ResponsiveImage from '../components/ui/ResponsiveImage';
 
 export default function Accommodation() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -41,7 +42,7 @@ export default function Accommodation() {
   return (
     <>
       <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
-        <img src="/Images/Accommodation/Accommodation4.jpg" alt="A thoughtfully designed guest room" className="absolute inset-0 h-full w-full object-cover" />
+        <ResponsiveImage src="/Images/Accommodation/Accommodation4.jpg" width={3024} height={4032} sizes="100vw" alt="A thoughtfully designed guest room" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/20" />
         <div className="section-shell relative z-10 flex h-full items-end pb-14">
           <div className="max-w-2xl text-white">
@@ -67,8 +68,11 @@ export default function Accommodation() {
             <article key={room.id} className="grid gap-6 overflow-hidden bg-[#efebe4] shadow-soft lg:grid-cols-2 lg:items-center">
               <div className="overflow-hidden">
                 <button type="button" onClick={() => openGallery(index)} aria-label={`Open image gallery for ${room.name}`} className="block w-full overflow-hidden">
-                  <img
+                  <ResponsiveImage
                     src={room.image}
+                    width={room.width}
+                    height={room.height}
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                     alt={`${room.name} at New Brookfields Hotel`}
                     loading="lazy"
                     className="h-[420px] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
@@ -105,7 +109,7 @@ export default function Accommodation() {
               <X size={22} />
             </button>
             <div className="relative">
-              <img src={rooms[activeIndex].image} alt={`${rooms[activeIndex].name} at New Brookfields Hotel`} className="h-[60vh] w-full object-cover" />
+              <ResponsiveImage src={rooms[activeIndex].image} width={rooms[activeIndex].width} height={rooms[activeIndex].height} sizes="100vw" loading="eager" alt={`${rooms[activeIndex].name} at New Brookfields Hotel`} className="h-[60vh] w-full object-cover" />
               <div className="flex items-center justify-between bg-[#f5f3ed] p-5">
                 <div>
                   <p className="eyebrow">Gallery</p>

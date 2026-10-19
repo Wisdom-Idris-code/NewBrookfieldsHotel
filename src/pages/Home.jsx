@@ -2,17 +2,21 @@ import { ArrowDown, ArrowRight, ArrowUpRight, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { rooms } from '../data/rooms';
 import { experiences } from '../data/experiences';
+import ResponsiveImage from '../components/ui/ResponsiveImage';
 
 export default function Home() {
   return (
     <>
       <section className="home-hero relative isolate h-[100svh] overflow-hidden">
-        <img
+        <ResponsiveImage
           src="/Images/hotel-exterior/Home.png"
+          width={1622}
+          height={970}
+          sizes="100vw"
           alt="Exterior of New Brookfields Hotel"
           className="absolute inset-0 h-full w-full object-cover object-[center_58%]"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
         />
         <div className="home-hero__veil absolute inset-0" />
 
@@ -63,7 +67,7 @@ export default function Home() {
 
         <div className="section-shell mt-14 grid gap-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
           <div className="overflow-hidden shadow-soft">
-            <img src="/Images/Accommodation/Accommodation7.jpg" alt="A calm, contemporary guest room" loading="lazy" className="h-[540px] w-full object-cover transition-transform duration-500 hover:scale-[1.02]" />
+            <ResponsiveImage src="/Images/Accommodation/Accommodation7.jpg" width={4911} height={3253} sizes="(min-width: 1024px) 60vw, 100vw" alt="A calm, contemporary guest room" loading="lazy" className="h-[540px] w-full object-cover transition-transform duration-500 hover:scale-[1.02]" />
           </div>
           <div className="flex flex-col gap-4 text-charcoal/80">
             <div className="flex items-center gap-3 text-olive">
@@ -96,7 +100,7 @@ export default function Home() {
             {rooms.slice(0, 2).map((room) => (
               <article key={room.id} className="group overflow-hidden bg-ivory shadow-soft">
                 <div className="overflow-hidden">
-                  <img src={room.image} alt={`${room.name} at New Brookfields Hotel`} loading="lazy" className="h-[360px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+                  <ResponsiveImage src={room.image} width={room.width} height={room.height} sizes="(min-width: 1024px) 50vw, 100vw" alt={`${room.name} at New Brookfields Hotel`} loading="lazy" className="h-[360px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
                 </div>
                 <div className="space-y-6 p-7 md:p-9">
                   <div>
@@ -122,8 +126,11 @@ export default function Home() {
           </div>
 
           <div className="overflow-hidden">
-            <img
+            <ResponsiveImage
               src="/Images/Experiences/Experience4.jpg"
+              width={3500}
+              height={2333}
+              sizes="100vw"
               alt="A welcoming hotel space for guests to enjoy"
               loading="lazy"
               className="h-[500px] w-full object-cover md:h-[620px]"
@@ -133,7 +140,7 @@ export default function Home() {
           <div className="mt-10 grid gap-8 md:grid-cols-3">
             {experiences.map((experience) => (
               <article key={experience.id} className="group border-t border-charcoal/15 pt-6">
-                <img src={experience.image} alt={`${experience.title} at New Brookfields Hotel`} loading="lazy" className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+                <ResponsiveImage src={experience.image} width={experience.width} height={experience.height} sizes="(min-width: 768px) 33vw, 100vw" alt={`${experience.title} at New Brookfields Hotel`} loading="lazy" className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
                 <div className="mt-6">
                   <p className="eyebrow">{experience.title}</p>
                   <h3 className="mt-3 text-4xl text-charcoal">{experience.title}</h3>

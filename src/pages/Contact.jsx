@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { hotel } from '../data/hotel';
 import { rooms } from '../data/rooms';
+import ResponsiveImage from '../components/ui/ResponsiveImage';
 
 const getToday = () => {
   const now = new Date();
@@ -60,12 +61,16 @@ export default function Contact() {
   return (
     <>
       <section className="contact-scene relative isolate min-h-[100svh] overflow-hidden">
-        <img
+        <ResponsiveImage
           src="/Images/ContactPool.png"
+          width={817}
+          height={768}
+          sizes="100vw"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-[center_55%]"
-          fetchpriority="high"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="contact-scene__veil absolute inset-0" />
         <div className="section-shell relative z-10 flex min-h-[100svh] items-center py-32 md:py-28">
